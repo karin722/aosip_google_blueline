@@ -31,7 +31,7 @@ $(call inherit-product, device/google/crosshatch/aosp_blueline.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := aosip_blueline
+PRODUCT_NAME := derp_blueline
 PRODUCT_DEVICE := blueline
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Pixel 3
@@ -48,6 +48,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/blueline/blueline:10/QQ2A.200405.005/61386254899846:user/release-keys
 
 BOARD_PREBUILT_VENDORIMAGE := vendor/images/blueline/vendor.img
+
+# DerpFest Customs
+DERP_BUILDTYPE := UNOfficial
+BUILD_DATE := $(shell date +"%Y%m%d-%H%M%S")
+IS_PHONE := true
+DERP_BUILD_ZIP_TYPE := VANILLA
 
 $(call inherit-product-if-exists, vendor/google/blueline/blueline-vendor.mk)
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
